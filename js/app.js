@@ -28,7 +28,7 @@ const butInstall = document.getElementById('butInstall');
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('./ServiceWorker.js')
+           .register('/ServiceWorker.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
 let deferredPrompt;
