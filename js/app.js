@@ -33,6 +33,8 @@ function displayNotification() {
     });
   }
 }
+
+
 // const divInstall = document.getElementById('installContainer');
 // const butInstall = document.getElementById('butInstall');
 
