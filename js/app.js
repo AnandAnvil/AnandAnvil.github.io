@@ -22,6 +22,9 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
   console.warn("Push messaging is not supported");
   console.log("Service workers are not supported.");
 }
+Notification.requestPermission(function(status) {
+  console.log('Notification permission status:', status);
+});
 
 // const divInstall = document.getElementById('installContainer');
 // const butInstall = document.getElementById('butInstall');
