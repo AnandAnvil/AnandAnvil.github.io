@@ -3,15 +3,15 @@
   "name": "Vizru",
   "icons": [
     {
-      "src": "ui-themes/base/mobile/img/icons/icon-192x192.png",
+      "src": "icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     }, {
-      "src": "ui-themes/base/mobile/img/icons/icon-152x152.png",
+      "src": "icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png"
     },{
-      "src": "ui-themes/base/mobile/img/icons/icon-256x256.png",
+      "src": "icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     }
