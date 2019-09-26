@@ -12,7 +12,7 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
       }
     );
     navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-      console.log("Service worker successfully registered on scope",registration.scope);
+      console.log("Service worker successfully registered on scope",serviceWorkerRegistration.scope);
       return serviceWorkerRegistration.pushManager.subscribe({
         userVisibleOnly: true
       })
