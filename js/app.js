@@ -16,7 +16,7 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
       return serviceWorkerRegistration.pushManager.subscribe({
         userVisibleOnly: true
       })
-    }).then(function(subscription) {console.log(subscription.endpoint);});
+    }).then(function(subscription) {console.log("hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",subscription.endpoint);});
     
     navigator.serviceWorker.addEventListener('message', function(event) {
       console.log(event.data.message); // Hello World !
