@@ -6,26 +6,18 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
     navigator.serviceWorker.register("./ServiceWorker.js").then(
       function(registration) {
         console.log("Service Worker: Registered ", registration);
-        registration.pushManager.getSubscription().then(function(sub) {
-          if (sub === null) {
-            
-            console.log('Not subscribed to push service!');
-          } else {
-         
-            console.log('Subscription object: ', sub);
-          }
-        });
       },
       function(e) {
         console.log("Error during service worker registration:", e);
       }
     );
     navigator.serviceWorker.ready.then(function(registration) {
-      console.log(
-        "Service worker successfully registered on scope",
-        registration.scope
-      );
-    });
+      console.log("Service worker successfully registered on scope",registration.scope);
+      return serviceWorkerRegistration.pushManager.subscribe({
+        userVisibleOnly: true
+      })
+    }).then(function(subscription) {console.log(subscription.endpoint);});
+    
     navigator.serviceWorker.addEventListener('message', function(event) {
       console.log(event.data.message); // Hello World !
     });
