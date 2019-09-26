@@ -15,7 +15,7 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
       console.log("Service worker successfully registered on scope",serviceWorkerRegistration.scope);
       return serviceWorkerRegistration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: convertedVapidKey
+       
       })
     }).then(function(subscription) {console.log(subscription.endpoint);});
     
