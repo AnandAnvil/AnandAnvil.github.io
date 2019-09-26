@@ -11,7 +11,7 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
         console.log("Error during service worker registration:", e);
       }
     );
-    navigator.serviceWorker.ready.then(function(registration) {
+    navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
       console.log("Service worker successfully registered on scope",registration.scope);
       return serviceWorkerRegistration.pushManager.subscribe({
         userVisibleOnly: true
