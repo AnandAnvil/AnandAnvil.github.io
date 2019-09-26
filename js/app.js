@@ -11,14 +11,12 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
         console.log("Error during service worker registration:", e);
       }
     );
-    navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-      console.log("Service worker successfully registered on scope",serviceWorkerRegistration.scope);
-      return serviceWorkerRegistration.pushManager.subscribe({
-        userVisibleOnly: true,
-       
-      })
-    }).then(function(subscription) {console.log(subscription.endpoint);});
-    
+    navigator.serviceWorker.ready.then(function(registration) {
+      console.log(
+        "Service worker successfully registered on scope",
+        registration.scope
+      );
+    });
     navigator.serviceWorker.addEventListener('message', function(event) {
       console.log(event.data.message); // Hello World !
     });
@@ -31,6 +29,7 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
 Notification.requestPermission(function(status) {
   console.log('Notification permission status:', status);
 });
+
 function displayNotification() {
   if (Notification.permission == 'granted') {
     navigator.serviceWorker.getRegistration().then(function(reg) {

@@ -27,12 +27,18 @@ self.addEventListener('install', (event) => {
       notification.close();
     }
   });
-  self.addEventListener('push', function (event) {
-    if (event && event.data) {
-      const data = event.data.json();
-      event.waitUntil(self.registration.showNotification(data.title, {
-        body: data.body,
-        icon: data.icon || null
-      }))
-    }
-  });
+  self.addEventListener('push', function(event) {
+    console.log('Received a push message');
+
+    var title = 'New message.'; 
+    var body = 'You have received a new message.';
+    var tag = 'simple-push-demo-notification-tag';
+
+    event.waitUntil(
+        self.registration.showNotification(title, {
+            body: body,
+            tag: tag
+        })
+    );
+});
+  
