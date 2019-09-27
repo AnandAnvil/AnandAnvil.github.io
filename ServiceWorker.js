@@ -1,7 +1,20 @@
 console.log("service worker loaded")
 self.addEventListener('install', (event) => {
     console.log( 'install', event);
-    self.skipWaiting();
+    e.waitUntil(caches.open('vizru').then(function(cache){
+      return cache.addAll([
+        '/',
+        '/chat_typing-dots-speed-2.gif',
+        "/icon-192x192.png",
+        "/icon-152x152.png",
+        "/icon-256x256.png",
+        "/js/extchat.min.js",
+        "/js/app.js"
+
+      ])
+    })
+    );
+    //self.skipWaiting();
   });
   
   self.addEventListener('activate', (event) => {
