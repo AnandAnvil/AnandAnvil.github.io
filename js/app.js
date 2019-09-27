@@ -25,7 +25,10 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
   console.warn("Push messaging is not supported");
   console.log("Service workers are not supported.");
 }
-
+if (!('fetch' in window)) {
+  console.log('Fetch API not found, try including the polyfill');
+  return;
+}
 Notification.requestPermission(function(status) {
   console.log('Notification permission status:', status);
 });
