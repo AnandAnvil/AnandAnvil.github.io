@@ -1,7 +1,7 @@
 console.log("service worker loaded")
 self.addEventListener('install', (event) => {
     console.log( 'install', event);
-    e.waitUntil(caches.open('vizru').then(function(cache){
+    event.waitUntil(caches.open('vizru').then(function(cache){
       return cache.addAll([
         '/',
         '/chat_typing-dots-speed-2.gif',
