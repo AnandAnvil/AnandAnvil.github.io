@@ -17,62 +17,77 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
         registration.scope
       );
     });
-    navigator.serviceWorker.addEventListener('message', function(event) {
-      console.log(event.data.message); // Hello World !
+    navigator.serviceWorker.addEventListener("message", function(event) {
+      console.log(event.data.message);
     });
   });
 } else {
   console.warn("Push messaging is not supported");
   console.log("Service workers are not supported.");
 }
+if (!('Notification' in window)) {
+  console.log('This browser does not support notifications!');
+  return;
+}
 
 Notification.requestPermission(function(status) {
-  console.log('Notification permission status:', status);
+  console.log("Notification permission status:", status);
 });
 
 function displayNotification() {
-  if (Notification.permission == 'granted') {
+  if (Notification.permission == "granted") {
     navigator.serviceWorker.getRegistration().then(function(reg) {
-      var options = {
-        body: 'Here is a notification body!',
-        dir : "ltr"
-      };
-      reg.showNotification('Hello world!');
+      reg.showNotification("Hello world!");
     });
   }
 }
-function notifyMe(user,message) {
-  
+function notifyMe(user, message) {
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
-  }
-  
-  else if (Notification.permission === "granted") {
-   
-  var options = {
-        body: message,
-        dir : "ltr"
+  } else if (Notification.permission === "granted") {
+    var options = {
+      body: message,
+      dir: "ltr"
     };
-  var notification = new Notification(user + " Posted a comment",options);
-  }
-  
-  else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function (permission) {
-    
-      if (!('permission' in Notification)) {
+    var notification = new Notification(user + " Posted a comment", options);
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission(function(permission) {
+      if (!("permission" in Notification)) {
         Notification.permission = permission;
       }
-     
+
       if (permission === "granted") {
         var options = {
-                body: message,
-                dir : "ltr"
+          body: message,
+          dir: "ltr"
         };
-        var notification = new Notification(user + " Posted a comment",options);
+        var notification = new Notification(
+          user + " Posted a comment",
+          options
+        );
       }
     });
   }
- 
 }
-
-
+function initializeUI(){
+  pushButton.addEventListener('click', () => {
+    pushButton.disabled = true;
+    if (isSubscribed) {
+      unsubscribeUser();
+    } else {
+      subscribeUser();
+    }
+  });
+  
+  swRegistration.pushManager.getSubscription()
+  .then(subscription => {
+    isSubscribed = (subscription !== null);
+    updateSubscriptionOnServer(subscription);
+    if (isSubscribed) {
+      console.log('User IS subscribed.');
+    } else {
+      console.log('User is NOT subscribed.');
+    }
+    updateBtn();
+  });
+}

@@ -26,19 +26,20 @@ self.addEventListener('install', (event) => {
      console.log( 'fetch', event);
     event.respondWith(fetch(event.request));
   });
-  self.addEventListener('notificationclick', function(e) {
-    var notification = e.notification;
-    var primaryKey = notification.data.primaryKey;
-    var action = e.action;
-
-    console.log('Closed notification: ' + primaryKey);
-    
+  self.addEventListener('notificationclick', event => {
+    const notification = event.notification;
+    const primaryKey = notification.data.primaryKey;
+    const action = event.action;
+  
     if (action === 'close') {
       notification.close();
     } else {
-      clients.openWindow('https://anandanvil.github.io/');
+      clients.openWindow('samples/page' + primaryKey + '.html');
       notification.close();
     }
+  
+    // TODO 5.3 - close all notifications when one is clicked
+  
   });
   self.addEventListener('push', function(event) {
     console.log('Received a push message');
@@ -54,4 +55,9 @@ self.addEventListener('install', (event) => {
         })
     );
 });
-  
+  self.addEventListener('notificationclose',event => {
+    const notification = event.notification;
+    const primaryKey = notification.data.primaryKey;
+    console.log('Closed notification: ' + primaryKey);
+  });
+ 
