@@ -25,10 +25,6 @@ if ("serviceWorker" in navigator && "PushManager" in window) {
   console.warn("Push messaging is not supported");
   console.log("Service workers are not supported.");
 }
-if (!('Notification' in window)) {
-  console.log('This browser does not support notifications!');
-  return;
-}
 
 Notification.requestPermission(function(status) {
   console.log("Notification permission status:", status);
