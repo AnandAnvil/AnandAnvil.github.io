@@ -4,17 +4,17 @@ self.addEventListener('install', (event) => {
     event.waitUntil(caches.open('vizru').then(function(cache){
       return cache.addAll([
         '/',
-        'mobile/chat_typing-dots-speed-2.gif',
-        "mobile/icon-192x192.png",
-        "mobile/icon-152x152.png",
-        "mobile/icon-256x256.png",
-        "mobile/js/extchat.min.js",
-        "mobile/js/app.js"
+        '/chat_typing-dots-speed-2.gif',
+        "/icon-192x192.png",
+        "/icon-152x152.png",
+        "/icon-256x256.png",
+        "/js/extchat.min.js",
+        "/js/app.js"
 
       ])
     })
     );
-    
+    //self.skipWaiting();
   });
   
   self.addEventListener('activate', (event) => {
