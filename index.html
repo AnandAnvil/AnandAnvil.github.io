@@ -113,17 +113,18 @@
 						</footer>
             </div>
        </div>
-<script src="js/extchat.min.js"></script></body>
+<!-- <script src="js/extchat.min.js"></script></body> -->
 <script type="text/javascript">
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 		var element = document.getElementById('text');
 		if (isMobile) {
-  			console.log("using mobile")
+              console.log("using mobile")
+              
 		} else {
-			console.log("using desktop",isMobile)
+            console.log("using desktop",isMobile)
+            location.href = 'js/extchat.min.js';
 		}
 </script>
-<script src="log-1.html"></script></body>
 <script type="text/javascript">
     $(function(){
         $("body").addClass( theme );
