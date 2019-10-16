@@ -10,14 +10,14 @@ self.addEventListener('install', (event) => {
         "/mobile/icon-256x256.png",
         "/mobile/js/extchat.min.js",
         "/mobile/js/app.js",
-        "/mobile/bootstrap-tagsinput.js",
-        "mobile/bootstrap.min.js",
-        "/mobile/jquery-2.0.0.min.js",
-        "/mobile/jquery-2.0.0.min.js",
-        "/mobile/jquery-ui.js",
-        "/mobile/moment-with-locales.min.js",
-        "/mobile/socket.io.js",
-        "mobile/underscore-min.js"
+        "/mobile/js/bootstrap-tagsinput.js",
+        "/mobile/js/bootstrap.min.js",
+        "/mobile/js/jquery-2.0.0.min.js",
+        "/mobile/js/jquery-2.0.0.min.js",
+        "/mobile/js/jquery-ui.js",
+        "/mobile/js/moment-with-locales.min.js",
+        "/mobile/js/socket.io.js",
+        "/mobile/js/underscore-min.js"
       ])
     })
     );
