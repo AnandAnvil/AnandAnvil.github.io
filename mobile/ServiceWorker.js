@@ -24,10 +24,10 @@ self.addEventListener('install', (event) => {
    
   });
   
-  self.addEventListener('activate', (event) => {
-    console.log( 'activate', event);
-    return self.clients.claim();
-  });
+  // self.addEventListener('activate', (event) => {
+  //   console.log( 'activate', event);
+  //   return self.clients.claim();
+  // });
   
   self.addEventListener('fetch', function(event) {
     console.log(event.request.url);
