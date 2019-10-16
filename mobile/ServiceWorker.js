@@ -26,11 +26,14 @@ self.addEventListener('install', (event) => {
   );
 });
 
-self.addEventListener('activate', (event) => {
-  console.log('Inside the activate handler:', event);
+elf.addEventListener('activate', (event) => {
+  console.log('👷', 'activate', event);
+  return self.clients.claim();
 });
-self.addEventListener(fetch, (event) => {
-  console.log('Inside the fetch handler:', event);
+
+self.addEventListener('fetch', function(event) {
+   console.log('👷', 'fetch', event);
+  event.respondWith(fetch(event.request));
 });
 self.addEventListener('notificationclick', event => {
   const notification = event.notification;
