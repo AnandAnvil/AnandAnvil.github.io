@@ -9,8 +9,15 @@ self.addEventListener('install', (event) => {
         "/mobile/icon-152x152.png",
         "/mobile/icon-256x256.png",
         "/mobile/js/extchat.min.js",
-        "/mobile/js/app.js"
-
+        "/mobile/js/app.js",
+        "/mobile/bootstrap-tagsinput.js",
+        "mobile/bootstrap.min.js",
+        "/mobile/jquery-2.0.0.min.js",
+        "/mobile/jquery-2.0.0.min.js",
+        "/mobile/jquery-ui.js",
+        "/mobile/moment-with-locales.min.js",
+        "/mobile/socket.io.js",
+        "mobile/underscore-min.js"
       ])
     })
     );
