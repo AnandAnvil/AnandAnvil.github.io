@@ -1,21 +1,20 @@
 console.log("service worker loaded");
 var cacheName = 'vizru';
 var urlsToCache = [
-  '/',
-  '/mobile/chat_typing-dots-speed-2.gif',
-  "/mobile/icon-192x192.png",
-  "/mobile/icon-152x152.png",
-  "/mobile/icon-256x256.png",
-  "/mobile/js/extchat.min.js",
-  "/mobile/js/app.js",
-  "/mobile/js/bootstrap-tagsinput.js",
-  "/mobile/js/bootstrap.min.js",
-  "/mobile/js/jquery-2.0.0.min.js",
-  "/mobile/js/jquery-2.0.0.min.js",
-  "/mobile/js/jquery-ui.js",
-  "/mobile/js/moment-with-locales.min.js",
-  "/mobile/js/socket.io.js",
-  "/mobile/js/underscore-min.js"
+  'chat_typing-dots-speed-2.gif',
+  "icon-192x192.png",
+  "icon-152x152.png",
+  "icon-256x256.png",
+  "./js/extchat.min.js",
+  "./js/app.js",
+  "./js/bootstrap-tagsinput.js",
+  "./js/bootstrap.min.js",
+  "./js/jquery-2.0.0.min.js",
+  "./js/jquery-2.0.0.min.js",
+  "./js/jquery-ui.js",
+  "./js/moment-with-locales.min.js",
+  "./js/socket.io.js",
+  "./js/underscore-min.js"
 ];
 self.addEventListener('install', (event) => {
   console.log('install', event);
@@ -25,10 +24,6 @@ self.addEventListener('install', (event) => {
   );
 });
 
-self.addEventListener('activate', (event) => {
-  console.log( 'activate', event);
-  return self.clients.claim();
-});
 
 self.addEventListener('fetch', function (event) {
   console.log(event.request.url);
