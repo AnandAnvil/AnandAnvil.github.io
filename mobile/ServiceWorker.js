@@ -2,6 +2,7 @@ console.log("service worker loaded");
 var cacheName = 'vizru';
 var urlsToCache = [
   '/',
+  "/mobile/index.html",
   '/mobile/chat_typing-dots-speed-2.gif',
   "/mobile/icon-192x192.png",
   "/mobile/icon-152x152.png",
