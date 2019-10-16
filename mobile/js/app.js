@@ -3,7 +3,7 @@ console.log("app.js loaded");
 if ("serviceWorker" in navigator && "PushManager" in window) {
   console.log("Service Worker and Push is supported");
   window.addEventListener("load", function() {
-    navigator.serviceWorker.register("../ServiceWorker.js").then(
+    navigator.serviceWorker.register("./ServiceWorker.js").then(
       function(registration) {
         console.log("Service Worker: Registered ", registration);
       },
