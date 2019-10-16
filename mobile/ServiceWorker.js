@@ -26,7 +26,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-elf.addEventListener('activate', (event) => {
+self.addEventListener('activate', (event) => {
   console.log('👷', 'activate', event);
   return self.clients.claim();
 });
